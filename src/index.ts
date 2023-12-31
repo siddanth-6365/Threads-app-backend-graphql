@@ -1,6 +1,6 @@
 import express from "express";
 import { expressMiddleware } from "@apollo/server/express4";
-import { ApolloServer } from "@apollo/server";
+import createApolloServer from "./graphql";
 
 async function init() {
   const app = express();
@@ -12,25 +12,7 @@ async function init() {
     res.json({ message: "Server is up and running" });
   });
 
-  const typeDefs = `
-  type Query {
-hello : String
-  }
-  `;
-  const resolvers = {
-    Query: {
-      hello: () => "hello world",
-    },
-  };
-
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-  });
-
-  await server.start()
-
-  app.use("/graphql", expressMiddleware(server));
+  app.use("/graphql", expressMiddleware(await createApolloServer()));
 
   app.listen(PORT, () => console.log(`Server started at PORT:${PORT}`));
 }
