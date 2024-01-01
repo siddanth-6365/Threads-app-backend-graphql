@@ -4,7 +4,7 @@ import { User } from "./user";
 async function createApolloServer() {
   const typeDefs = `
   type Query {
-    hello: String
+    ${User.queries}
  }
  type Mutation {
     ${User.mutations}
