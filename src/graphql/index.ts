@@ -3,6 +3,7 @@ import { User } from "./user";
 
 async function createApolloServer() {
   const typeDefs = `
+  ${User.typeDefs}
   type Query {
     ${User.queries}
  }
@@ -13,11 +14,11 @@ async function createApolloServer() {
 `;
   const resolvers = {
     Query: {
-        ...User.resolvers.queries,
-      },
-      Mutation: {
-        ...User.resolvers.mutations,
-      },
+      ...User.resolvers.queries,
+    },
+    Mutation: {
+      ...User.resolvers.mutations,
+    },
   };
 
   const server = new ApolloServer({
