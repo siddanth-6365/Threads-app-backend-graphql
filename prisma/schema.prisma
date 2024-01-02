@@ -11,13 +11,63 @@ datasource db {
 }
 
 model User {
-  id              String  @id @default(uuid())
-  firstName       String  @map("first_name")
-  lastName        String? @map("last_name")
-  profileImageURL String? @map("profile_image_url")
-  email           String  @unique
+  id              String   @id @default(uuid())
+  firstName       String   @map("first_name")
+  lastName        String?  @map("last_name")
+  profileImageURL String?  @map("profile_image_url")
+  email           String   @unique
   password        String
   salt            String
+  Thread          Thread[]
 
   @@map("users")
+}
+
+model Thread {
+  id          String    @id @default(uuid())
+  createdAt   DateTime  @default(now())
+  description String?
+  userId      String
+  comments    Comment[]
+  likes       Like[]
+  Media       Media[]
+  User        User      @relation(fields: [userId], references: [id])
+
+  @@map("threads")
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  userId    String
+  thread    Thread   @relation(fields: [threadId], references: [id])
+  threadId  String
+
+  @@map("comments")
+}
+
+model Like {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  userId    String
+  thread    Thread   @relation(fields: [threadId], references: [id])
+  threadId  String
+
+  @@map("likes")
+}
+
+model Media {
+  id       String    @id @default(uuid())
+  url      String
+  type     MediaType
+  thread   Thread?   @relation(fields: [threadId], references: [id])
+  threadId String?
+
+  @@map("media")
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
 }
