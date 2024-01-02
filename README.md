@@ -1,10 +1,21 @@
 # Threads App Backend API Clone using GraphQL
 
-This project is a backend API clone of the Threads app by Facebook, leveraging the power of GraphQL. It's built with a robust tech stack, including NodeJS, ExpressJS, Prisma ORM, and PostgreSQL with Docker Compose.
+- A robust backend API clone of the Threads app by Facebook, built with GraphQL and a modern tech stack.
+- Seamlessly handles user authentication, thread creation, media management, and interactions.
+- Designed with a focus on scalability, maintainability, and developer experience.
 
 ## Documentation
 
 For detailed information on the API endpoints, authentication, and more, please refer to our [Documentation](https://siddanth-reddy.notion.site/Thread-s-app-backend-clone-graphql-abd8ab2f40054fdfa8c79e9b90cb8e77?pvs=74).
+## Key Features
+
+- **Authentication:**
+   - Secure user signup and signin functionality.
+   - Role-based authorization for protected routes.
+- **GraphQL API:**
+   - Flexible and efficient data fetching with GraphQL.
+   - Models for users, threads, comments, media, and likes.
+   - Core CRUD operations for managing content.
 
 ## Tech Stack
 
@@ -27,18 +38,9 @@ For detailed information on the API endpoints, authentication, and more, please 
   - Media
   - Likes
 
-## Usage
+## Getting Started
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/your-username/threads-app-backend-clone.git
-   cd threads-app-backend-clone
-2. **Install Dependencies:**
-   ```bash
-   npm install
-3. **Set Up Environment Variables:**
-Create a .env file based on the provided .env.example and add necessary configuration.
-4. **Create an build folder**
-5. **Run the Application:**
-  ```bash
-    npm run dev
+1. Install dependencies: `npm install`
+2. create an new folder build
+3. Start development server: `npm run dev`
+4. Access GraphQL Playground: `http://localhost:<port>/graphql`
