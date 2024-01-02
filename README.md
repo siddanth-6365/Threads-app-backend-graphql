@@ -20,9 +20,12 @@ For detailed information on the API endpoints, authentication, and more, please 
   - User signup and signin functions.
   - Authorization checks for protected routes.
 
-- **GraphQL Schema:**
-  - User model created.
-  - Context setup for handling authentication.
+- **GraphQL Schemas:**
+  - User model created - (createUser,getCurrentLoginUser,getUserToken)
+  - Threads - (createThread)
+  - Comments
+  - Media
+  - Likes
 
 ## Usage
 
