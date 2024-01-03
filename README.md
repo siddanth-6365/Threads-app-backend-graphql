@@ -42,5 +42,6 @@ For detailed information on the API endpoints, authentication, and more, please 
 
 1. Install dependencies: `npm install`
 2. create an new folder build
-3. Start development server: `npm run dev`
-4. Access GraphQL Playground: `http://localhost:<port>/graphql`
+3. create an copy on env.example and add your own details
+4. Start development server: `npm run dev`
+5. Access GraphQL Playground: `http://localhost:<port>/graphql`
