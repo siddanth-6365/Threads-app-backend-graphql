@@ -1,7 +1,11 @@
 export const typeDefs = `#graphql
-type ResponseType {
+type createThreadResponseType {
   message: String,
   id: String
+}
+
+type ThreadResponseType {
+  
 }
 
 input MediaInput {

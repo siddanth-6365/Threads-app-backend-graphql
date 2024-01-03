@@ -1,6 +1,7 @@
 export const queries = `#graphql
 
+getThreads(): [any]
 
 
 `;
-// here User type we are adding in typedefs file and called in server
+// need to implement this getThreads type for now it is any

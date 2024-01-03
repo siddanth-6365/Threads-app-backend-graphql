@@ -51,6 +51,7 @@ model Like {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   userId    String
+  likeCount Int      @default(0)
   thread    Thread   @relation(fields: [threadId], references: [id])
   threadId  String
 

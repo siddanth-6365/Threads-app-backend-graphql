@@ -1,6 +1,4 @@
 export const mutations = `#graphql
-createThread(description: String!, userId: String!, media: [MediaInput!]!) : ResponseType
+createThread(description: String!, userId: String!, media: [MediaInput!]!) : createThreadResponseType
 
 `;
-
-//createThread mutation includes nested media creation with media: { create: { data: $media } }
