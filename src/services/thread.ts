@@ -47,6 +47,23 @@ class ThreadService {
       throw error;
     }
   }
+
+  public static async getConnectedThreads(payload: any) {
+    try {
+      const { parentThreadId, childThreadId } = payload;
+      const connectedThread = await prismaClient.connectedThreads.create({
+        data: {
+          parentThreadId,
+          childThreadId,
+        },
+      });
+
+      return connectedThread;
+    } catch (error) {
+      console.error("Error creating connected thread:", error);
+      throw error;
+    }
+  }
 }
 
 export default ThreadService;

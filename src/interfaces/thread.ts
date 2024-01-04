@@ -9,6 +9,11 @@ interface MediaInput {
   type: MediaType;
 }
 
+export interface getConnectedThreadsInput {
+  parentThreadId: string;
+  childThreadId: string;
+}
+
 enum MediaType {
   IMAGE = "IMAGE",
   VIDEO = "VIDEO",

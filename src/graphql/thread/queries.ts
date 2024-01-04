@@ -1,6 +1,7 @@
 export const queries = `#graphql
 
 getThreads(): [any]
+getConnectedThreadsByParent(parentThreadId: String!): [ConnectedThread]
 
 
 `;

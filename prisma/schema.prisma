@@ -24,16 +24,27 @@ model User {
 }
 
 model Thread {
-  id          String    @id @default(uuid())
-  createdAt   DateTime  @default(now())
-  description String?
-  userId      String
-  comments    Comment[]
-  likes       Like[]
-  Media       Media[]
-  User        User      @relation(fields: [userId], references: [id])
+  id               String             @id @default(uuid())
+  createdAt        DateTime           @default(now())
+  description      String?
+  userId           String
+  comments         Comment[]
+  likes            Like[]
+  Media            Media[]
+  User             User               @relation(fields: [userId], references: [id])
+  ConnectedThreads ConnectedThreads[]
 
   @@map("threads")
+}
+
+model ConnectedThreads {
+  id             String   @id @default(uuid())
+  createdAt      DateTime @default(now())
+  parentThreadId String
+  thread         Thread   @relation(fields: [threadId], references: [id])
+  threadId       String
+
+  @@map("thread_connections")
 }
 
 model Comment {
